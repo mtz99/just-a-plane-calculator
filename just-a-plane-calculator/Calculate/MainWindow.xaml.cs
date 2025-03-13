@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -68,9 +69,9 @@ namespace just_a_plane_calculator
         private void EvaluateArithmatic(object sender, RoutedEventArgs e)
         {
             if (history == "") { return; }
-            // a really scuffed way to allow for the repeated input of an operation
+            // allows for the repeated input of an operation
             // basically if yuou press '=' after putting in something like 3 + 3
-            // it will ad 3 to the value of the operation (so history will say 6 + 3)
+            // it will add 3 to the value of the operation (so history will say 6 + 3)
 
             string inputArithmatic;
 
@@ -79,16 +80,17 @@ namespace just_a_plane_calculator
                 string[] temp = history.Split(' '); // 3 + 20 =  ->  '3', '+', '20', '='
                 temp[0] = display;
                 inputArithmatic = String.Join(" ", temp);
-
                 history = inputArithmatic;
             }
             else
             {
                 inputArithmatic = history + display;
                 history = inputArithmatic + " = ";
+
             }
 
             display = Calculate.CalculateString(inputArithmatic);
+            HistoryAdd(history, display);
             ClearScreen = true;
             decimalInserted = false;
             Update();
@@ -136,6 +138,30 @@ namespace just_a_plane_calculator
         {
             InputScreen.Text = display;
             InputHistory.Text = history;
+            
         }
+
+        private void HistoryAdd(string history, string currAns)
+        {
+            ListBoxItem newItem = new ListBoxItem();
+            newItem.Content = history + currAns;
+            HistoryList.Items.Add(newItem);
+
+        }
+
+        //Copy selected history item to clipboard
+        private void HistorySelect_LeftMouseButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var historySelect = HistoryList.SelectedItem as ListBoxItem;
+            
+            if (historySelect != null)
+            {
+                string historyString = historySelect.Content.ToString();
+                Clipboard.SetText(historyString);
+
+                MessageBox.Show($"Calculation '{historyString}' copied to clipboard!");
+            }
+        }
+
     }
 }
