@@ -1,4 +1,4 @@
-# Just a plane calculator
-A work in progress, plan to expand this out into a suite of apps related to planning travel.
+# Just some office tools
+A small suite of basic office tools, includes a calculator and notes applets. 
 
-Maybe I'll call it "trip planeing"?
+Did this to help further my knowledge in C# and .NET app development.
