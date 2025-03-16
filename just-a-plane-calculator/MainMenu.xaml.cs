@@ -1,4 +1,5 @@
-﻿using System;
+﻿using just_a_plane_calculator.Notes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,10 +25,18 @@ namespace just_a_plane_calculator
             InitializeComponent();
         }
 
+        //Opens the calculator applet.
         private void LaunchCalculator(object sender, RoutedEventArgs e)
         {
             MainWindow calculatorWindow = new MainWindow();
             calculatorWindow.Show();
+        }
+
+        //Opens the notes applet.
+        private void LaunchNote(object sender, RoutedEventArgs e)
+        {
+            NotesApplet notesWindow = new NotesApplet();
+            notesWindow.Show();
         }
     }
 }

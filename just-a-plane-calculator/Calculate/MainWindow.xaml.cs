@@ -70,7 +70,7 @@ namespace just_a_plane_calculator
         {
             if (history == "") { return; }
             // allows for the repeated input of an operation
-            // basically if yuou press '=' after putting in something like 3 + 3
+            // basically if you press '=' after putting in something like 3 + 3
             // it will add 3 to the value of the operation (so history will say 6 + 3)
 
             string inputArithmatic;
@@ -96,6 +96,7 @@ namespace just_a_plane_calculator
             Update();
         }
 
+        //Invert the current number.
         private void FlipNum(object sender, RoutedEventArgs e)
         {
             if (display == "0") { return; }
@@ -104,6 +105,7 @@ namespace just_a_plane_calculator
             Update();
         }
 
+        //Clear the calculation.
         private void InputClear(object sender, RoutedEventArgs e)
         {
             display = "0";
@@ -112,6 +114,7 @@ namespace just_a_plane_calculator
             Update();
         }
 
+        //The calculator's "backspace" function.
         private void TrimNumberInput(object sender, RoutedEventArgs e)
         {
             if (display == "0") { return; }
@@ -127,6 +130,7 @@ namespace just_a_plane_calculator
             Update();
         }
 
+        //Square the current number.
         private void SqaureNum(object sender, RoutedEventArgs e)
         {
             if (display == "0") { return; }
@@ -134,6 +138,7 @@ namespace just_a_plane_calculator
             Update();
         }
 
+        //Update the current display and history list.
         private void Update()
         {
             InputScreen.Text = display;
@@ -141,6 +146,7 @@ namespace just_a_plane_calculator
             
         }
 
+        //Adds current calculation to history list panel.
         private void HistoryAdd(string history, string currAns)
         {
             ListBoxItem newItem = new ListBoxItem();

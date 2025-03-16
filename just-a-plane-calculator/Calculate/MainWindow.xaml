@@ -137,7 +137,8 @@
 
             <ListBox Name="HistoryList"
                 FontSize="15"
-                Foreground="#b5b5b5"
+                Background="LightYellow"
+                Foreground="Black"
                 Margin="312,55,0,0"
                 HorizontalAlignment="Left"
                 SelectionMode="Single"
