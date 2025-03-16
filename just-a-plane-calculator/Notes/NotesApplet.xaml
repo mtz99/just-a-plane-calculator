@@ -1,0 +1,79 @@
+﻿<Window x:Class="just_a_plane_calculator.Notes.NotesApplet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:just_a_plane_calculator.Notes"
+        mc:Ignorable="d"
+        Title="Notes" Height="650" Width="800"
+        ResizeMode="NoResize"
+        Background="LightYellow">
+        
+    <Grid>
+
+        <TextBlock Text="Notes"
+           Name="NotesText"
+           FontSize="30"
+           Foreground="Black"
+           Margin="0,7,0,0"
+           TextAlignment="Center"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top"
+           Width ="300"
+           />
+
+        <TextBlock Text="Double click a note below to copy to clipboard"
+           Name="NotesInstruction"
+           FontSize="12"
+           Foreground="Gray"
+           Margin="0,8,10,0"
+           TextAlignment="Center"
+           HorizontalAlignment="Right"
+           VerticalAlignment="Top"
+            Width ="300"
+           />
+
+        <TextBlock Text="To remove an note, select and then right click it."
+           Name="RemovalInstruction"
+           FontSize="12"
+           Foreground="Red"
+           Margin="0,30,10,0"
+           TextAlignment="Center"
+           HorizontalAlignment="Right"
+           VerticalAlignment="Top"
+            Width ="300"
+           />
+
+        <ListBox Name="ListPane"
+            FontSize="15"
+            Foreground="Black"
+            Margin="0,60,0,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            SelectionMode="Single"
+            MouseDoubleClick="NotesSelect_LeftMouseButtonDown"
+            PreviewMouseRightButtonDown="NotesRemove_RightMouseButtonDown"
+            Width ="686" Height="450"/>
+
+        <TextBox Name= "ListEntry"
+            Text="Enter a note here."
+            Foreground = "Black"
+            Margin="0,0,140,35"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
+            Width ="546" Height="35"
+            GotFocus="TextBox_GotFocus"
+            LostFocus="TextBox_LostFocus"
+                 />
+
+        <Button x:Name="InputText" Click="NotesAdd" Content="Add new note"
+            Margin="0,0,60,35"
+            Foreground="White"
+            Background="Green"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"
+            Width="100" Height="35"
+                />
+
+    </Grid>
+</Window>
